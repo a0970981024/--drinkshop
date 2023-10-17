@@ -51,6 +51,7 @@ namespace 飲料訂單視窗頁面
             else{ 
                 var targetStackPanel = targetTextBox.Parent as StackPanel;
                 var targetLabel = targetStackPanel.Children[0] as Label;
+                string drinkName = targetLabel.Content.ToString();
             }
         }
     }

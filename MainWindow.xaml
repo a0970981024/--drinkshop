@@ -5,24 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:飲料訂單視窗頁面"
         mc:Ignorable="d"
-        Title="飲料點餐系統" Height="450" Width="800">
-    <Grid>
-        <StackPanel Margin="25,27,314,179" Background="#FFA0D3ED">
-            <StackPanel Height="51" Width="461" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal">
-                <StackPanel.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleY="1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </StackPanel.RenderTransform>
-                <Label Content="紅茶" Width="100" FontSize="20" FontFamily="Arial Black" VerticalAlignment="Center" Background="Transparent" Foreground="#FFA90707" HorizontalContentAlignment="Center"
-                       />
-                <Label Content="大杯" Width="60" FontSize="20" FontFamily="Arial Black" VerticalAlignment="Center" Height="32" Background="Transparent" Foreground="Black"/>
-                <Label Content="60元" Width="80" FontSize="20" FontFamily="Arial Black" VerticalAlignment="Center" Height="32" Background="Transparent" Foreground="Black" HorizontalContentAlignment="Center"/>
+        Title="飲料點餐系統" Height="621" Width="691">
+    <Grid Margin="0,0,0,-5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10,10,0,0" Background="#FFA0D3ED" HorizontalAlignment="Left" Width="403" Height="359" VerticalAlignment="Top">
+            <StackPanel Height="49" Width="505" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal" Margin="5,5,5,5">
+
+                <Label Content="紅茶大杯" Width="150" FontSize="20" FontFamily="Arial Black" Background="Transparent" Foreground="#FFA90707" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom"  />
+                <Label Content="60元" Width="120" FontSize="20" FontFamily="Arial Black" VerticalAlignment="Center" Height="32" Background="Transparent" Foreground="Black" HorizontalAlignment="Center"/>
+                <TextBox FontSize="20" Width="100" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" TextChanged="TextBox_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Height="49" Width="505" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal" Margin="5,5,5,5">
+                <Label Content="紅茶小杯&#xD;&#xA;" Width="150" FontSize="20" FontFamily="Arial Black" Background="Transparent" Foreground="#FFA90707" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom"  />
+                <Label Content="40元&#xD;&#xA;&#xD;&#xA;40元&#xD;&#xA;" Width="120" FontSize="20" FontFamily="Arial Black" VerticalAlignment="Center" Height="32" Background="Transparent" Foreground="Black" HorizontalAlignment="Center"/>
+                <TextBox FontSize="20" Width="100" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" TextChanged="TextBox_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Height="49" Width="505" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal" Margin="5,5,5,5">
+
+                <Label Content="綠茶大杯&#xD;&#xA;&#xD;&#xA;" Width="150" FontSize="20" FontFamily="Arial Black" Background="Transparent" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#FF107925"  />
+                <Label Content="60元" Width="120" FontSize="20" FontFamily="Arial Black" VerticalAlignment="Center" Height="32" Background="Transparent" Foreground="Black" HorizontalAlignment="Center"/>
+                <TextBox FontSize="20" Width="100" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" TextChanged="TextBox_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Height="49" Width="505" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal" Margin="5,5,5,5">
+
+                <Label Content="綠茶小杯" Width="150" FontSize="20" FontFamily="Arial Black" Background="Transparent" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#FF107925"  />
+                <Label Content="40元&#xD;&#xA;" Width="120" FontSize="20" FontFamily="Arial Black" VerticalAlignment="Center" Height="32" Background="Transparent" Foreground="Black" HorizontalAlignment="Center"/>
+                <TextBox FontSize="20" Width="100" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" TextChanged="TextBox_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Height="49" Width="505" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal" Margin="5,5,5,5">
+
+                <Label Content="咖啡大杯&#xD;&#xA;" Width="150" FontSize="20" FontFamily="Arial Black" Background="Transparent" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#FF714D18"  />
+                <Label Content="60元" Width="120" FontSize="20" FontFamily="Arial Black" VerticalAlignment="Center" Height="32" Background="Transparent" Foreground="Black" HorizontalAlignment="Center"/>
+                <TextBox FontSize="20" Width="100" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" TextChanged="TextBox_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Height="49" Width="505" RenderTransformOrigin="0.5,0.5" Orientation="Horizontal" Margin="5,5,5,5">
+
+                <Label Content="咖啡小杯&#xD;&#xA;" Width="150" FontSize="20" FontFamily="Arial Black" Background="Transparent" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#FF714D18"  />
+                <Label Content="40元&#xD;&#xA;" Width="120" FontSize="20" FontFamily="Arial Black" VerticalAlignment="Center" Height="32" Background="Transparent" Foreground="Black" HorizontalAlignment="Center"/>
+                <TextBox FontSize="20" Width="100" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" TextChanged="TextBox_TextChanged"/>
             </StackPanel>
         </StackPanel>
+        <TextBlock x:Name="textblck1" HorizontalAlignment="Left" Margin="10,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="227" Width="661" RenderTransformOrigin="0.494,0.722" Background="#FFE8F1BF"><Run/><LineBreak/><Run/></TextBlock>
+        <Button x:Name="button1" Content="確定" HorizontalAlignment="Left" FontSize="35" Margin="506,10,0,0" VerticalAlignment="Top" Height="65" Width="124" FontFamily="Airl Black"/>
 
     </Grid>
 </Window>

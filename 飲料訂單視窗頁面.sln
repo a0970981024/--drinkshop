@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "飲料訂單視窗頁面", "飲料訂單視窗頁面.csproj", "{6DF2413E-C520-4F66-92D8-3F2AC6164895}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DF2413E-C520-4F66-92D8-3F2AC6164895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF2413E-C520-4F66-92D8-3F2AC6164895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF2413E-C520-4F66-92D8-3F2AC6164895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF2413E-C520-4F66-92D8-3F2AC6164895}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAEC4F6E-6D83-41F8-9C54-5FA5E96771CD}
+	EndGlobalSection
+EndGlobal

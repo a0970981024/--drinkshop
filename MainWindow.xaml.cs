@@ -20,6 +20,7 @@ namespace 飲料訂單視窗頁面
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         Dictionary<string,int> drinks = new Dictionary<string,int>();
         Dictionary<string, int> orders = new Dictionary<string, int>();
         public MainWindow()
@@ -28,6 +29,62 @@ namespace 飲料訂單視窗頁面
             //增新飲料品項
             AddNewDrink(drinks);
 
+            //顯示飲料品項
+            DisplayDrinkMenu(drinks);
+
+        }
+
+        private void DisplayDrinkMenu(Dictionary<string, int> f2drinks)
+        {
+
+            foreach (var drink in f2drinks) {
+                StackPanel sp = new StackPanel();
+                sp.Orientation = Orientation.Horizontal;
+                sp.Margin = new Thickness(5);
+
+                CheckBox cb = new CheckBox();
+                cb.Content = drink.Key;
+                cb.FontSize = 20;
+                cb.FontWeight = FontWeights.Bold;
+                cb.Foreground = Brushes.Green;
+                cb.VerticalContentAlignment = VerticalAlignment.Center;
+                cb.Width = 120;
+
+                Label lb = new Label();
+                lb.Content = $"{drink.Value}元";
+                lb.HorizontalAlignment = HorizontalAlignment.Center;
+                lb.VerticalContentAlignment = VerticalAlignment.Center;
+                lb.FontSize = 20;
+                lb.Width = 110;
+
+                Slider sl = new Slider();
+                sl.Width = 100;
+                sl.Value = 0;
+                sl.Minimum = 0;
+                sl.Maximum = 10;
+                sl.IsSnapToTickEnabled = true;
+
+                Label lb2 = new Label();
+                lb2.Content = "0";
+                lb2.HorizontalAlignment = HorizontalAlignment.Center;
+                lb2.VerticalContentAlignment = VerticalAlignment.Center;
+                lb2.FontSize = 20;
+                lb2.Width = 110;
+                lb.Foreground = Brushes.Brown;
+
+                //data binding
+                Binding myBinding = new Binding("Value");
+                myBinding.Source = sl;
+                lb2.SetBinding(ContentProperty,myBinding);
+
+                sp.Children.Add(cb);
+                sp.Children.Add(lb);
+                sp.Children.Add(sl);
+                sp.Children.Add(lb2);
+                
+                stackpanel1.Children.Add(sp);
+
+            }
         }
 
         //增新飲料品項

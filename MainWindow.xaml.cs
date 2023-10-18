@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.VisualBasic;
 
 namespace 飲料訂單視窗頁面
 {
@@ -117,19 +119,55 @@ namespace 飲料訂單視窗頁面
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            //將訂購的飲料加入訂單
+            PlaceOder(orders);
+
+            //計算並顯示訂單明細
+            DisplayOrderDetail(orders);
+
+            
+        }
+
+        private void DisplayOrderDetail(Dictionary<string, int> orders)
+        {
+            textblock1.Inlines.Clear();
+            Run titlestring = new Run();
+            titlestring.Text = "您所訂購的飲品";
+            titlestring.FontSize = 17;
+            titlestring.Foreground = Brushes.Red;
+
+            textblock1.Inlines.Add(titlestring);
+
+            Run takeoutString = new Run
+            {
+                FontSize = 17,
+                Foreground = Brushes.Red,
+                Background = Brushes.Azure
+            };
+            textblock1.Inlines.Add(takeoutString);
+
+            textblock1.Inlines.Add(new Run("，訂購明細如下 \n"));
+
+
+
             double total = 0.0;
             string discountString = "";
-            string displayString = "訂購清單如下: \n";
+            //string displayString = "訂購清單如下: \n";
             double sellPrice = 0.0;
-            
+            int i = 1;
 
-            foreach(var item in orders)
+            foreach (var item in orders)
             {
                 string drinkName = item.Key;
                 int quantity = orders[drinkName];
                 int price = drinks[drinkName];
                 total += price * quantity;
-                displayString += $"{drinkName} X {quantity}杯，每杯{price}元，總共{price * quantity}元\n";
+                Run detailString = new Run {
+                    Text = ($"{i}:{drinkName} X {quantity}杯，每杯{price}元，總共{price * quantity}元\n"),
+                    FontSize=20,
+                };
+                textblock1.Inlines.Add(detailString);
+                i++;
             }
 
             if (total >= 500)
@@ -152,9 +190,29 @@ namespace 飲料訂單視窗頁面
                 discountString = "訂購未滿200不打折";
                 sellPrice = total;
             }
+            textblock1.Inlines.Add(new Run($"本次訂購{orders.Count}項飲品，{discountString}，售價{sellPrice}元。"));
+            
+            //textblock1.Text = displayString;
+        }
 
-            displayString += $"本次訂購{orders.Count}項飲品，{discountString}，售價{sellPrice}元。";
-            textblock1.Text = displayString;
+        private void PlaceOder(Dictionary<string, int> orders)
+        {
+            orders.Clear();
+            for(int i=0;i<stackpanel1.Children.Count; i++)
+            {
+                var sp = stackpanel1.Children[i] as StackPanel;
+                var cb = sp.Children[0] as CheckBox;
+                var sl = sp.Children[2] as Slider;
+
+                string drinkName = cb.Content.ToString();
+                int quantity = Convert.ToInt32(sl.Value);
+
+                if(cb.IsChecked == true && quantity != 0)
+                {
+                    orders.Add(drinkName, quantity);
+                }
+
+            }
         }
     }
 }

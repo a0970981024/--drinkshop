@@ -52,7 +52,52 @@ namespace 飲料訂單視窗頁面
                 var targetStackPanel = targetTextBox.Parent as StackPanel;
                 var targetLabel = targetStackPanel.Children[0] as Label;
                 string drinkName = targetLabel.Content.ToString();
+
+                if(orders.ContainsKey(drinkName)) orders.Remove(drinkName);
+                orders.Add(drinkName, quantity);
             }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            double total = 0.0;
+            string discountString = "";
+            string displayString = "訂購清單如下: \n";
+            double sellPrice = 0.0;
+            
+
+            foreach(var item in orders)
+            {
+                string drinkName = item.Key;
+                int quantity = orders[drinkName];
+                int price = drinks[drinkName];
+                total += price * quantity;
+                displayString += $"{drinkName} X {quantity}杯，每杯{price}元，總共{price * quantity}元\n";
+            }
+
+            if (total >= 500)
+            {
+                discountString = "訂購滿500元以上打8折";
+                sellPrice = total * 0.8;
+            }
+            else if (total >= 300)
+            {
+                discountString = "訂購滿300元以上打85折";
+                sellPrice = total * 0.85;
+            }
+            else if (total >= 200)
+            {
+                discountString = "訂購滿200元以上打9折";
+                sellPrice = total * 0.9;
+            }
+            else
+            {
+                discountString = "訂購未滿200不打折";
+                sellPrice = total;
+            }
+
+            displayString += $"本次訂購{orders.Count}項飲品，{discountString}，售價{sellPrice}元。";
+            textblock1.Text = displayString;
         }
     }
 }
